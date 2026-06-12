@@ -1,0 +1,177 @@
+{
+  "phase_1_lexer": [
+    {
+      "line": 1,
+      "tokens": [
+        "LET",
+        "VAR_P",
+        "EQ",
+        "TRUE"
+      ]
+    },
+    {
+      "line": 2,
+      "tokens": [
+        "LET",
+        "VAR_Q",
+        "EQ",
+        "FALSE"
+      ]
+    },
+    {
+      "line": 3,
+      "tokens": [
+        "LET",
+        "VAR_R",
+        "EQ",
+        "L_PAREN",
+        "NOT",
+        "L_PAREN",
+        "L_PAREN",
+        "NOT",
+        "VAR_P",
+        "R_PAREN",
+        "AND",
+        "VAR_Q",
+        "R_PAREN",
+        "R_PAREN"
+      ]
+    },
+    {
+      "line": 4,
+      "tokens": [
+        "IF",
+        "VAR_R",
+        "THEN",
+        "PRINT",
+        "VAR_P"
+      ]
+    }
+  ],
+  "phase_2_parser": [
+    {
+      "line": 1,
+      "ast": [
+        "LET",
+        "VAR_P",
+        "TRUE"
+      ]
+    },
+    {
+      "line": 2,
+      "ast": [
+        "LET",
+        "VAR_Q",
+        "FALSE"
+      ]
+    },
+    {
+      "line": 3,
+      "ast": [
+        "LET",
+        "VAR_R",
+        [
+          "NOT",
+          [
+            "AND",
+            [
+              "NOT",
+              "VAR_P"
+            ],
+            "VAR_Q"
+          ]
+        ]
+      ]
+    },
+    {
+      "line": 4,
+      "ast": [
+        "IF",
+        "VAR_R",
+        [
+          "PRINT",
+          "VAR_P"
+        ]
+      ]
+    }
+  ],
+  "phase_3_optimizer": [
+    {
+      "line": 1,
+      "ast": [
+        "LET",
+        "VAR_P",
+        "TRUE"
+      ]
+    },
+    {
+      "line": 2,
+      "ast": [
+        "LET",
+        "VAR_Q",
+        "FALSE"
+      ]
+    },
+    {
+      "line": 3,
+      "ast": [
+        "LET",
+        "VAR_R",
+        [
+          "OR",
+          "VAR_P",
+          [
+            "NOT",
+            "VAR_Q"
+          ]
+        ]
+      ]
+    },
+    {
+      "line": 4,
+      "ast": [
+        "IF",
+        "VAR_R",
+        [
+          "PRINT",
+          "VAR_P"
+        ]
+      ]
+    }
+  ],
+  "phase_4_execution": {
+    "verifications": [
+      {
+        "line": 3,
+        "variables_tested": [
+          "VAR_P",
+          "VAR_Q"
+        ],
+        "ast_original_column": [
+          "TRUE",
+          "TRUE",
+          "FALSE",
+          "TRUE"
+        ],
+        "ast_optimized_column": [
+          "TRUE",
+          "TRUE",
+          "FALSE",
+          "TRUE"
+        ],
+        "is_equivalent": "TRUE"
+      }
+    ],
+    "final_state_dictionary": {
+      "VAR_P": "TRUE",
+      "VAR_Q": "FALSE",
+      "VAR_R": "TRUE"
+    },
+    "printed_output": [
+      {
+        "line": 4,
+        "output": "TRUE"
+      }
+    ]
+  }
+}
