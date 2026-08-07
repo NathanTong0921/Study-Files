@@ -1,0 +1,53 @@
+[general]
+chat_models = ["gpt-3.5-turbo", "gpt-4"]
+model = "gpt-3.5-turbo"
+temperature = 0.7
+self_consistency_samples = 3
+
+[prompts]
+instruction_prompt = """
+Classify the sentiment of each conversation in >>>>>CONTENT<<<<< as
+"negative" or "positive". Conversations are separated by blank lines.
+
+For each conversation, consider:
+1. Does the customer use swear words or 😤?
+2. Does the customer seem aggravated or angry?
+
+If either answer is yes, classify it as "negative". Otherwise classify it
+as "positive".
+
+Return only valid JSON in this exact shape, with one label per conversation
+in the same order as the input:
+{"sentiments": ["negative", "positive"]}
+"""
+role_prompt = """You are a thoroughly trained machine learning model that
+is an expert at sentiment classification. Follow the requested output format
+and never make up information that is not in the conversations."""
+positive_example = """
+[Agent] 2023-06-15 : Hello! How can I assist you today?
+[Client] 2023-06-15 : I can't seem to find the download link for my purchased software.
+[Agent] 2023-06-15 : No problem, ****. Let me find that for you.
+[Client] 2023-06-15 : Thanks for helping me out!
+"""
+positive_reasoning = """
+- The customer does not use swear words or 😤.
+- The customer does not seem aggravated or angry.
+- Sentiment: "positive"
+"""
+positive_output = """
+{"sentiments": ["positive"]}
+"""
+negative_example = """
+[Agent] 2023-07-24 : What can I help you with?
+[Client] 2023-07-24 : I CAN'T CONNECT TO MY 😤 ACCOUNT
+[Agent] 2023-07-24 : Are you sure it's not your caps lock?
+[Client] 2023-07-24 : 😤! You're right!
+"""
+negative_reasoning = """
+- The customer uses 😤.
+- The customer seems aggravated or angry.
+- Sentiment: "negative"
+"""
+negative_output = """
+{"sentiments": ["negative"]}
+"""

@@ -1,0 +1,10 @@
+run_id,model,main_change,image_size,batch_size,epochs,optimizer,learning_rate,seed,val_accuracy,val_macro_f1,notes
+baseline,manual_resnet18,required manual ResNet18 baseline,128,32,50,adamw,0.001,398,0.7582417582417582,0.6105038773903007,best_epoch=36; pretrained=False; freeze_backbone=False; weight_decay=0.0001
+transfer_resnet18,resnet18,ImageNet pretrained weights,128,32,12,adamw,0.0003,398,0.8791208791208791,0.7900453063147397,best_epoch=6; pretrained=True; freeze_backbone=False; weight_decay=0.0001
+transfer_lr_1e-4,resnet18,learning rate 0.0003 to 0.0001,128,32,12,adamw,0.0001,398,0.8937728937728938,0.7180857368357368,best_epoch=11; pretrained=True; freeze_backbone=False; weight_decay=0.0001
+transfer_lr_1e-3,resnet18,learning rate 0.0003 to 0.001,128,32,12,adamw,0.001,398,0.8791208791208791,0.7530278925487578,best_epoch=3; pretrained=True; freeze_backbone=False; weight_decay=0.0001
+transfer_batch_64,resnet18,batch size 32 to 64,128,64,12,adamw,0.0003,398,0.8974358974358975,0.7670393285696812,best_epoch=5; pretrained=True; freeze_backbone=False; weight_decay=0.0001
+transfer_frozen,resnet18,freeze pretrained backbone,128,32,12,adamw,0.0003,398,0.717948717948718,0.5517562632212676,best_epoch=11; pretrained=True; freeze_backbone=True; weight_decay=0.0001
+transfer_weight_decay_0,resnet18,weight decay 0.0001 to 0,128,32,12,adamw,0.0003,398,0.9047619047619048,0.7794232740891608,best_epoch=4; pretrained=True; freeze_backbone=False; weight_decay=0.0
+transfer_batch_16,resnet18,batch size 32 to 16,128,16,12,adamw,0.0003,398,0.9157509157509156,0.7876746342415206,best_epoch=5; pretrained=True; freeze_backbone=False; weight_decay=0.0001
+bonus_augmentation,resnet18,add label-preserving geometric training augmentation,128,16,12,adamw,0.0003,398,0.8901098901098901,0.7973843489621133,best_epoch=10; pretrained=True; freeze_backbone=False; weight_decay=0.0001; training_augmentation=light_geometric

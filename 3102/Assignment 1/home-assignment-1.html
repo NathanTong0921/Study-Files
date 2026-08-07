@@ -1,0 +1,98 @@
+<!doctype html>
+<!-- Canvas-ready assignment description. Two ways to use it:
+     (1) Standalone: open this file in a browser to preview.
+     (2) Canvas: open the assignment's Rich Content Editor, click the "</>"
+         (HTML) view, and paste the markup BELOW the <body> tag (from the first
+         <h1> through the last </section>). Canvas strips <style>, but the
+         semantic tags render fine. Fill the [TODO] fields first. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Poker Best-Hand Analyzer — Debug &amp; Build</title>
+<style>
+  body { max-width: 52rem; margin: 2rem auto; padding: 0 1rem;
+         font: 16px/1.55 -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; color: #1a1a1a; }
+  h1 { font-size: 1.7rem; } h2 { margin-top: 1.8rem; border-bottom: 1px solid #ddd; padding-bottom: .2rem; }
+  code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+  code { background: #f3f3f3; padding: .1em .35em; border-radius: 3px; font-size: .92em; }
+  pre { background: #f6f8fa; padding: .8rem 1rem; border-radius: 6px; overflow-x: auto; }
+  pre code { background: none; padding: 0; }
+  .meta { background: #eef4ff; border: 1px solid #cdddf7; border-radius: 6px; padding: .6rem 1rem; }
+  ul.checklist { list-style: none; padding-left: 1.2rem; } ul.checklist li::before { content: "\2610  "; }
+</style>
+</head>
+<body>
+
+<h1>Poker Best-Hand Analyzer — Debug &amp; Build</h1>
+
+<p class="meta"><strong>Due:</strong> July 3, 2026 &middot;
+<strong>Points:</strong> 100 &middot;
+<strong>Budget:</strong> ~2–3 hours &middot;
+<strong>AI assistant: required</strong></p>
+
+<p>A small advanced-Python assignment. You are given a partly-working poker hand
+evaluator: two modules are written <strong>but contain bugs</strong>, and three
+more are <strong>stubs you implement</strong>. You debug, build, and test it —
+using an AI coding assistant the whole way. The full problem statement is in
+<code>README.md</code> inside the zip; this page is just logistics.</p>
+
+<h2>1. Get the code</h2>
+<ol>
+  <li>Download <strong><code>poker-assignment.zip</code></strong> from this Canvas assignment.</li>
+  <li>Unzip it — you'll get a <code>poker/</code> folder.</li>
+  <li>Open <code>poker/README.md</code>: the complete spec (the five levels, the
+      rules, worked examples, and what each file is).</li>
+</ol>
+
+<h2>2. Set up your environment</h2>
+<p>You need <strong>Python 3.11+</strong>. We recommend
+<a href="https://docs.astral.sh/uv/">uv</a>:</p>
+<pre><code>cd poker
+uv sync                       # create the env + install pytest/ruff/mypy
+uv run python -m unittest     # run the tests (or: uv run pytest)
+uv run ruff check .           # lint
+uv run mypy --strict level1.py level2.py level3.py level4.py level5.py</code></pre>
+<p>No <code>uv</code>? Use a virtualenv instead:</p>
+<pre><code>cd poker
+python3 -m venv .venv &amp;&amp; source .venv/bin/activate   # Windows: .venv\Scripts\activate
+pip install pytest ruff mypy
+python -m unittest</code></pre>
+<p>A fresh <code>uv run pytest</code> runs the one included example test and it
+should <strong>pass</strong> — that confirms your setup. Everything else is your work.</p>
+
+<h2>3. Use your AI assistant (and save the conversation)</h2>
+<p>This is a course about working effectively with AI coding tools, so using one
+(GitHub Copilot, Claude, etc.) is <strong>expected</strong>. Save your
+conversation to <strong><code>chat.md</code></strong> — it is part of what you
+submit, and your <code>BUGS.md</code> / <code>REFLECTIONS.md</code> should reflect
+your own understanding, not just pasted output.</p>
+
+<h2>4. What to submit</h2>
+<p>Re-zip your <code>poker/</code> folder and
+<strong>upload the <code>.zip</code> to this Canvas assignment.</strong> Make sure
+it contains:</p>
+<ul class="checklist">
+  <li><code>level1.py</code> … <code>level5.py</code> — your fixed/implemented code</li>
+  <li><code>test_poker.py</code> — <strong>your own tests</strong> (graded — no test file is provided)</li>
+  <li><code>BUGS.md</code> — one entry per bug you fixed (where, symptom, root cause, fix, why)</li>
+  <li><code>REFLECTIONS.md</code> — what was hard, how you found the bugs</li>
+  <li><code>chat.md</code> — your AI conversation transcript</li>
+</ul>
+<p><strong>Do not edit</strong> <code>hand_rank.py</code>,
+<code>poker_common.py</code>, or <code>poker_analysis.py</code> — they are frozen;
+the grader uses its own copies and ignores (and flags) changes.</p>
+
+<h2>5. How it's graded</h2>
+<p>Grading is automatic, against <strong>hidden, comprehensive test sets</strong>
+that are deliberately broader than the worked examples — passing the examples is
+not enough. You're scored on: correctness of all five levels, the quality of the
+tests you write, your <code>BUGS.md</code>, and a small <strong>optional</strong>
+speed bonus. The detailed point breakdown is released after the deadline.</p>
+
+<h2>Academic integrity</h2>
+<p>Using an AI assistant is allowed and encouraged. Submitting work you don't
+understand is not: the bug explanations, the tests, and the reflections must be
+your own. <code>chat.md</code> must be a genuine record of your process.</p>
+
+</body>
+</html>

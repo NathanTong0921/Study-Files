@@ -1,0 +1,9 @@
+image_id,true_label,predicted_label,confidence,failure_group,observation
+Train_104,multiple_diseases,healthy,0.9981921315193176,subtle_or_low_contrast,"The main leaf appears nearly symptom-free; only a few tiny pale marks are visible, so evidence for multiple diseases is weak after resizing."
+Train_1573,multiple_diseases,scab,0.9981801509857178,mixed_or_ambiguous_symptoms,"Faint brown or olive discoloration follows the veins and a few isolated spots are present; the mixed label is visually ambiguous and the scab-like pattern dominates."
+Train_128,multiple_diseases,rust,0.9964003562927246,dominant_rust_pattern,"Numerous round orange-brown lesions strongly resemble rust, while no comparably clear second disease pattern is visible."
+Train_1358,multiple_diseases,scab,0.9946416616439819,mixed_or_ambiguous_symptoms,"Irregular necrotic lesions, small holes, and yellowing overlap on a slightly soft-focused leaf, making the mixed condition easy to reduce to scab."
+Train_1429,scab,healthy,0.9901455044746399,subtle_or_low_contrast,"The foreground leaf is mostly dark green and the scab lesions are faint, diffuse, and low contrast, so healthy tissue dominates the image."
+Train_1618,multiple_diseases,rust,0.9660588502883911,dominant_rust_pattern,"Several well-defined circular orange-brown lesions dominate the leaf and look rust-like; other disease evidence is much less conspicuous."
+Train_1170,scab,healthy,0.9630336761474609,subtle_or_low_contrast,"The leaf contains only faint diffuse discoloration with soft boundaries, and much of the visible surface looks healthy."
+Train_1730,scab,healthy,0.9519727826118469,uneven_illumination,"Strong dappled shadows cover much of the target leaf; the small visible lesions occupy little of the bright region and are overwhelmed by lighting variation."
